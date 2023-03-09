@@ -27,7 +27,14 @@
             </div>
             <div class="col-6">
                 <div>
-                    <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)" accept="image/png, image/gif, image/jpeg">
+                    <div class="dropzone" appDrag (files)="fileDropped($event)">
+                        <div class="text-wrapper">
+                            <div class="centered">
+                                Drag and Drop your file or <a (click)="selectFile.click()" class="browse-button">browse</a> file
+                            </div>
+                        </div>
+                    </div>
+                    <input type="file" style="display: none;" multiple value="select" #selectFile (change)="onFileSelected($event)" accept="image/png, image/gif, image/jpeg">
                 </div>
                 <div class="mt-5">
                     <div class="row">
