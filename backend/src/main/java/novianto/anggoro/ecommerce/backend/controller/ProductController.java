@@ -5,6 +5,7 @@ import novianto.anggoro.ecommerce.backend.entity.Product;
 import novianto.anggoro.ecommerce.backend.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,6 +20,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @PreAuthorize("hasRole('Admin')")
     @PostMapping(value = {"/addNewProduct"}, consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public Product addNewProduct(@RequestPart("product") Product product, @RequestPart("imageFile")MultipartFile[] files){
 //        return productService.addNewProduct(product);
