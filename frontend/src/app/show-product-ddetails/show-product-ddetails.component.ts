@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowProductDdetailsComponent implements OnInit {
   productDetails: Product[] = [];
-  displayedColumns: string[] = ['Id', 'Nama Produk', 'Deskrisi Produk', 'Harga Diskon', 'Harga Awal'];
+  displayedColumns: string[] = ['Id', 'Nama Produk', 'Deskrisi Produk', 'Harga Diskon', 'Harga Awal', 'Edit', 'Delete'];
 
   constructor(private productervice: ProductService) { }
 
@@ -24,6 +24,17 @@ export class ShowProductDdetailsComponent implements OnInit {
         console.log(response);
         this.productDetails = response;
       }, (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    );
+  }
+
+  deleteProduct(productId){
+    this.productervice.deleteProduct(productId).subscribe(
+      (response) => {
+        this.getAllProduct();
+      },
+      (error: HttpErrorResponse) => {
         console.log(error);
       }
     );
