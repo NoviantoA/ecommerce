@@ -21,4 +21,8 @@ public class ProductService {
     public List<Product> getAllProduct(){
         return (List<Product>) productRepository.findAll();
     }
+
+    public void deleteProductDetails(Integer productId){
+        productRepository.deleteById(productId);
+    }
 }

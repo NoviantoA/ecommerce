@@ -36,9 +36,16 @@ public class ProductController {
         }
     }
 
+    @PreAuthorize("hasRole('Admin')")
     @GetMapping({"/getAllProduct"})
     public List<Product> getAllProduct(){
         return productService.getAllProduct();
+    }
+
+    @PreAuthorize("hasRole('Admin')")
+    @DeleteMapping({"/deleteProductDetails/{productId)"})
+    public void deleteProductDetails(@PathVariable("productId") Integer productId){
+        productService.deleteProductDetails(productId);
     }
 
     public Set<ImageModel> uploadImage(MultipartFile[] multipartFiles) throws IOException {
