@@ -1,3 +1,4 @@
+import { ShowProductDdetailsComponent } from './show-product-ddetails/show-product-ddetails.component';
 import { AddNewProductComponent } from './add-new-product/add-new-product.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'user', component: UserComponent ,  canActivate:[AuthGuard], data:{roles:['User']} },
   { path: 'login', component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent },
-  { path: 'addNewProduct', component: AddNewProductComponent, canActivate: [AuthGuard], data: {roles: ['Admin']}}
+  { path: 'addNewProduct', component: AddNewProductComponent, canActivate: [AuthGuard], data: {roles: ['Admin']}},
+  { path: 'showProductDetails', component: ShowProductDdetailsComponent}
 ];
 
 @NgModule({

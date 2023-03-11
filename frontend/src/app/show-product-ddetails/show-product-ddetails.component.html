@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <table mat-table [dataSource]="productDetails" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="Id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.productId}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="Nama Produk">
+          <th mat-header-cell *matHeaderCellDef> Nama Produk </th>
+          <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Deskrisi Produk">
+          <th mat-header-cell *matHeaderCellDef> Deskrisi Produk </th>
+          <td mat-cell *matCellDef="let element"> {{element.productDescription}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Harga Diskon">
+          <th mat-header-cell *matHeaderCellDef> Harga Diskon </th>
+          <td mat-cell *matCellDef="let element"> {{element.productDiscountedPrice}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Harga Awal">
+          <th mat-header-cell *matHeaderCellDef> Harga Awal </th>
+          <td mat-cell *matCellDef="let element"> {{element.productActualPrice}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+  
+  
