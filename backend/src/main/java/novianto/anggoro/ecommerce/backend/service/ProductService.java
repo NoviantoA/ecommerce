@@ -5,6 +5,8 @@ import novianto.anggoro.ecommerce.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
 
@@ -14,5 +16,9 @@ public class ProductService {
     public Product addNewProduct(Product product){
         Product saveProduct = productRepository.save(product);
         return saveProduct;
+    }
+
+    public List<Product> getAllProduct(){
+        return (List<Product>) productRepository.findAll();
     }
 }
