@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ImageProcessingService } from './../image-processing.service';
 import { ShowImagesDialogComponent } from './../show-images-dialog/show-images-dialog.component';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -17,7 +18,8 @@ export class ShowProductDdetailsComponent implements OnInit {
   displayedColumns: string[] = ['Id', 'Nama Produk', 'Deskrisi Produk', 'Harga Diskon', 'Harga Awal', 'Images', 'Edit', 'Delete'];
 
   constructor(private productervice: ProductService, public imagesDialog:MatDialog,
-    private imageProcessingService: ImageProcessingService) { }
+    private imageProcessingService: ImageProcessingService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getAllProduct();
@@ -58,6 +60,11 @@ export class ShowProductDdetailsComponent implements OnInit {
       height: '500px',
       width: '800px'
     })
+  }
+
+  editProductDetails(productId){
+    // console.log(productId);
+    this.router.navigate(['/addNewProduct', {productId: productId}]);
   }
 
 }

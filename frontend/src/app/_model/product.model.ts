@@ -1,9 +1,10 @@
 import { FileHandle } from './file-handle.model';
 
 export interface Product {
-    productName: string,
-    productDescription: string,
-    productDiscountedPrice: number,
-    productActualPrice: number,
-    productImages: FileHandle[]
+    productId: number;
+    productName: string;
+    productDescription: string;
+    productDiscountedPrice: number;
+    productActualPrice: number;
+    productImages: FileHandle[];
 }

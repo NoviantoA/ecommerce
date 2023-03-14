@@ -47,6 +47,11 @@ public class ProductController {
         productService.deleteProductDetails(productId);
     }
 
+    @GetMapping({"/getProductDetailsById/{productId}"})
+    public Product getProductDetailsById(@PathVariable("productId") Integer productId){
+        return productService.getProductDetailsById(productId);
+    }
+
     public Set<ImageModel> uploadImage(MultipartFile[] multipartFiles) throws IOException {
         Set<ImageModel> imageModels = new HashSet<>();
         for (MultipartFile file : multipartFiles){
