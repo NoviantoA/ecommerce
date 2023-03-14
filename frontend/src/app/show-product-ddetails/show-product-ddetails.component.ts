@@ -1,9 +1,9 @@
 import { Router } from '@angular/router';
-import { ImageProcessingService } from './../image-processing.service';
-import { ShowImagesDialogComponent } from './../show-images-dialog/show-images-dialog.component';
+import { ImageProcessingService } from '../image-processing.service';
+import { ShowImagesDialogComponent } from '../show-images-dialog/show-images-dialog.component';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Product } from './../_model/product.model';
-import { ProductService } from './../_services/product.service';
+import { Product } from '../_model/product.model';
+import { ProductService } from '../_services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { map } from 'rxjs/operators';
@@ -18,13 +18,14 @@ export class ShowProductDdetailsComponent implements OnInit {
   displayedColumns: string[] = ['Id', 'Nama Produk', 'Deskrisi Produk', 'Harga Diskon', 'Harga Awal', 'Images', 'Edit', 'Delete'];
 
   constructor(private productervice: ProductService, public imagesDialog:MatDialog,
-    private imageProcessingService: ImageProcessingService,
-    private router: Router) { }
+              private imageProcessingService: ImageProcessingService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getAllProduct();
   }
 
+  // tslint:disable-next-line:typedef
   public getAllProduct(){
     this.productervice.getAllProducts()
     .pipe(
@@ -40,6 +41,7 @@ export class ShowProductDdetailsComponent implements OnInit {
     );
   }
 
+  // tslint:disable-next-line:typedef
   deleteProduct(productId){
     this.productervice.deleteProduct(productId).subscribe(
       (response) => {
@@ -51,6 +53,7 @@ export class ShowProductDdetailsComponent implements OnInit {
     );
   }
 
+  // tslint:disable-next-line:typedef
   showImages(product: Product) {
     console.log(product);
     this.imagesDialog.open(ShowImagesDialogComponent, {
@@ -59,9 +62,10 @@ export class ShowProductDdetailsComponent implements OnInit {
       },
       height: '500px',
       width: '800px'
-    })
+    });
   }
 
+  // tslint:disable-next-line:typedef
   editProductDetails(productId){
     // console.log(productId);
     this.router.navigate(['/addNewProduct', {productId: productId}]);
