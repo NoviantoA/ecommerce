@@ -15,9 +15,9 @@ import { map } from 'rxjs/operators';
 })
 export class ShowProductDdetailsComponent implements OnInit {
   productDetails: Product[] = [];
-  displayedColumns: string[] = ['Id', 'Nama Produk', 'Deskrisi Produk', 'Harga Diskon', 'Harga Awal', 'Images', 'Edit', 'Delete'];
+  displayedColumns: string[] = ['Id', 'Nama Produk', 'description', 'Harga Diskon', 'Harga Awal', 'Images', 'Action'];
 
-  constructor(private productervice: ProductService, public imagesDialog:MatDialog,
+  constructor(private productervice: ProductService, public imagesDialog: MatDialog,
               private imageProcessingService: ImageProcessingService,
               private router: Router) { }
 
