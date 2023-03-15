@@ -1,15 +1,17 @@
 <div class="container mt-5">
     <mat-grid-list cols="4" rowHeight="3:5" gutterSize="10">
         <mat-grid-tile *ngFor="let p of productDetails">
-            <div class="row home-page-product">
-                <img [src]="p.productImages[0].url" alt="">
+            <div class="row p-5">
+                <div class="image-container">
+                    <img class="home-page-product-image" [src]="p.productImages[0].url" alt="">
+                </div>
                 <div class="mt-4">
                     <p class="fw-bold">{{p.productName}}</p>
                 </div>
                 <div class="mt-2">
                     <p style="white-space: inherit; height: 40px; width: 288px; overflow: hidden; text-overflow: ellipsis;">
-<!--                        {{p.productDescription}}-->
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, officia?
+                        {{p.productDescription}}
+<!--                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, officia?-->
                     </p>
                 </div>
                 <div class="mt-2 d-flex">
